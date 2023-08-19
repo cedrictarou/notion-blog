@@ -1,45 +1,32 @@
 import Link from "next/link";
 import React from "react";
 
+const links = [
+  { href: "/#works", label: "works" },
+  { href: "/#skills", label: "skills" },
+  { href: "/#about", label: "about" },
+  { href: "/#contact", label: "contact" },
+];
+
 const Navbar = () => {
   return (
-    <div>
-      <nav className='container mx-auto lg:px-2 px-5'>
-        <div className='container flex items-center justify-between mx-auto'>
-          <Link href='/' className='text-2xl font-medium'>
-            Tokimasa Blog
-          </Link>
-          <div>
-            <ul className='flex items-center text-sm py-4 gap-x-3'>
+    <nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
+      <div className='container flex items-center justify-between mx-auto'>
+        <ul className='flex items-center text-sm py-4 gap-x-3'>
+          {links.map((link, index) => (
+            <li key={index}>
               <Link
-                href='/'
-                className='block hover:text-sky-500 transition duration-300'
+                href={link.href}
+                className='block hover:text-indigo-500 transition duration-300'
+                aria-label={link.label}
               >
-                twitter
+                {link.label.toUpperCase()}
               </Link>
-              <Link
-                href='/'
-                className='block hover:text-sky-500 transition duration-300'
-              >
-                facebook
-              </Link>
-              <Link
-                href='/'
-                className='block hover:text-sky-500 transition duration-300'
-              >
-                github
-              </Link>
-              <Link
-                href='/'
-                className='block hover:text-sky-500 transition duration-300'
-              >
-                instagram
-              </Link>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

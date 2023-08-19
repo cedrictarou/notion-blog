@@ -75,7 +75,7 @@ export const getSinglePost = async (slug: string) => {
 	}
 }
 
-export const getPostsForTopPage = async (pageSize = 4) => {
+export const getPostsForTopPage = async (pageSize = NUMBER_OF_POSTS_PER_PAGE) => {
 	const allPosts = await getAllPosts();
 	const postsForTopPage = allPosts.slice(0, pageSize);
 	return postsForTopPage;

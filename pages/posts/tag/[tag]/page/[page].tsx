@@ -68,18 +68,22 @@ export default function TagPage({ posts, numberOfPages, tag, allTags }) {
       </Head>
 
       <main className='container w-full mt-16'>
-        <h1 className='text-5xl font-medium text-center mb-16'>Notion-Blog</h1>
-        <section>
-          {posts.map((post: Post) => (
-            <SinglePost
-              key={post.id}
-              title={post.title}
-              description={post.description}
-              date={post.date}
-              tags={post.tags}
-              slug={post.slug}
-            />
-          ))}
+        <h2 className='text-5xl font-medium text-center mb-5'>検索結果</h2>
+        <section className='text-gray-600 body-font'>
+          <div className='container px-5 py-10 mx-auto'>
+            <div className='flex flex-wrap -m-4'>
+              {posts.map((post: Post) => (
+                <SinglePost
+                  key={post.id}
+                  title={post.title}
+                  description={post.description}
+                  date={post.date}
+                  tags={post.tags}
+                  slug={post.slug}
+                />
+              ))}
+            </div>
+          </div>
         </section>
         <Pagination numberOfPage={numberOfPages} tag={tag} />
         <Tag tags={allTags} />
